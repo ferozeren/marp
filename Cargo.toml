@@ -1,0 +1,21 @@
+[package]
+name = "marp"
+version = "0.1.0"
+edition = "2024"
+
+
+[profile.release]
+opt-level = "s"
+lto = true
+debug = false
+codegen-units = 1
+strip = true
+panic = "abort"
+incremental = false
+
+[profile.dev]
+incremental = true
+
+
+[dependencies]
+pulldown-cmark = "0.13.0"
