@@ -57,13 +57,65 @@ marp input.md output.pdf
 
 ### Example
 ```bash
-marp todo.md scedule.pdf
+marp Sample.md Output.pdf
 ```
 This will:
-1. Read `example.md`.
+1. Read `Sample.md`.
 2. Convert it to HTML with custom styling.
-3. Use `weasyprint` to generate `example.pdf`.
+3. Use `weasyprint` to generate `Ouput.pdf`.
 4. Remove the temporary HTML file(By default).
+
+```bash
+# Heading Level 1
+## Heading Level 2
+### Heading Level 3
+
+---
+
+This is a **bold** word, this is *italic*, this is ***bold italic***, and this is ~~strikethrough~~.
+
+Inline code example: `let x = 42;`
+
+A [link to Rust](https://www.rust-lang.org/) and an image:
+
+![Ferris the crab](https://www.rust-lang.org/static/images/ferris.gif)
+
+---
+
+## Lists
+
+**Unordered list:**
+- Item one
+- Item two
+  - Subitem A
+  - Subitem B
+
+**Ordered list:**
+1. First
+2. Second
+   1. Nested first
+   2. Nested second
+
+---
+
+## Blockquote
+> This is a blockquote.
+> It can span multiple lines.
+>
+> > Nested blockquote.
+
+---
+
+## Code Blocks
+
+```rust
+fn main() {
+    println!("Hello, world!");
+}
+```
+# PDF Output
+
+<img width="1426" height="1024" alt="Output" src="https://github.com/user-attachments/assets/45360ede-9a7a-41a9-9c8b-1eb9ea4f392f" />
 
 ### Input/Output Requirements
 - Input file must have a `.md` or `.markdown` extension.
