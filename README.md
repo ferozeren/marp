@@ -1,21 +1,26 @@
 # Markdown to PDF Converter
 
-A simple Rust command-line tool to convert Markdown files to PDF using the `weasyprint` library. This tool reads a Markdown file, converts it to HTML with custom CSS styling, and then generates a PDF using `weasyprint`.
+A simple Rust command-line tool to convert Markdown files to PDF using the [weasyprint](https://doc.courtbouillon.org/weasyprint/stable/index.html) library. This tool reads a Markdown file, converts it to HTML with custom CSS styling, and then generates a PDF using `weasyprint`.
 ## Prerequisites
 - **Rust**: Ensure you have Rust installed. You can install it using [rustup](https://rustup.rs/).
 - **weasyprint**: Required for the Rust-based conversion. Install it using one of the following methods:
 
 ### Installing weasyprint
+
 #### Option 1: Using OS Packaging
 - **Ubuntu/Debian**:
   ```bash
   sudo apt-get install weasyprint
   ```
+- **Arch Linux**:
+  ```bash
+  sudo pacman -S python-weasyprint
+  ```
 - **macOS** (using Homebrew):
   ```bash
   brew install weasyprint
   ```
-- **Windows**: Download and install `weasyprint` dependencies manually or use pip (see below).
+- **Windows**: Download and install `weasyprint` from [Github](https://github.com/Kozea/WeasyPrint/releases) or follow manual [instructions](https://doc.courtbouillon.org/weasyprint/stable/first_steps.html#windows).
 
 #### Option 2: Using pip
 ```bash
@@ -24,7 +29,8 @@ pip install weasyprint
 
 #### Option 3: Using uv
 ```bash
-uv pip install weasyprint
+uv tool install weasyprint
+uv tool update-shell
 ```
 
 Ensure `weasyprint` is accessible in your system's PATH after installation. Verify by running:
