@@ -46,7 +46,7 @@ weasyprint --version
    ```
 2. Build the Rust project using Cargo:
    ```bash
-   cargo build --release
+   cargo run --release Input.md Output.pdf
    ```
 3. The executable will be available in `target/release/`.
 
