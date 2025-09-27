@@ -51,18 +51,28 @@ fn custom_css() -> String {
 }
 
 fn md_convert(output_html: String, output_pdf: String) -> Result<(), Box<dyn Error>> {
-    let status: std::process::ExitStatus = Command::new("weasyprint")
-        .arg(output_html.clone())
+    // let status: std::process::ExitStatus = Command::new("weasyprint")
+    //     .arg(&output_html)
+    //     .arg(&output_pdf)
+    //     .status()?;
+
+    let output= Command::new("weasyprint")
+        .arg(&output_html)
         .arg(&output_pdf)
-        .status()?;
-    if status.success() {
+        .output();
+    
+    if let Err(e) = output {
+        fs::remove_file(&output_html)?;
+        eprintln!(
+            "weasyprint failed to convert! Ensure weasyprint is installed and present in the path!: {}",e
+        );
+
+    } else {
+
         // Remove temp HTML file
         fs::remove_file(&output_html)?;
         eprintln!("PDF Generated Successfully: {}", output_pdf);
-    } else {
-        eprintln!(
-            "weasyprint failed to convert! Ensure weasyprint is installed and present in the path!"
-        );
+
     }
     Ok(())
 }
