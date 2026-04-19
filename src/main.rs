@@ -55,8 +55,22 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     let css: String = custom_css();
 
+    // let final_html = format!(
+    //     "<html><head>{}</head><body>{}</body></html>",
+    //     css, html_data
+    // );
+
     let final_html = format!(
-        "<html><head>{}</head><body>{}</body></html>",
+        r#"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"> 
+    {}
+</head>
+<body>{}</body>
+</html>
+"#,
         css, html_data
     );
 

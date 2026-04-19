@@ -9,6 +9,8 @@ pub fn get_markdown(input_md_path: &str) -> std::io::Result<String> {
 
 pub fn md_convert(output_html: String, output_pdf: &str) -> Result<(), Box<dyn Error>> {
     let output = Command::new("weasyprint")
+        .arg("-e")
+        .arg("utf-8")
         .arg(&output_html)
         .arg(output_pdf)
         .output();
