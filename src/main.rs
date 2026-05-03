@@ -47,12 +47,12 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     let markdown_data: String = get_markdown(input_md)?;
     let mut options: pulldown_cmark::Options = pulldown_cmark::Options::empty();
-    options.insert(pulldown_cmark::Options::ENABLE_STRIKETHROUGH);
+    // options.insert(pulldown_cmark::Options::ENABLE_STRIKETHROUGH);
+    options.insert(pulldown_cmark::Options::all());
     let parser = pulldown_cmark::Parser::new_ext(&markdown_data, options);
 
     let mut html_data: String = String::new();
     pulldown_cmark::html::push_html(&mut html_data, parser);
-
     let css: String = custom_css();
 
     // let final_html = format!(
@@ -65,7 +65,7 @@ fn main() -> Result<(), Box<dyn Error>> {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8"> 
+    <meta charset="utf-8">
     {}
 </head>
 <body>{}</body>
