@@ -69,7 +69,7 @@ This will:
 1. Read `Sample.md`.
 2. Convert it to HTML with custom styling.
 3. Use `weasyprint` to generate `Ouput.pdf`.
-4. Remove the temporary HTML file(By default).
+4. Keep the temporary HTML file(By default).
 
 ```bash
 # Heading Level 1
